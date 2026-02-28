@@ -18,8 +18,7 @@ import {
 } from 'lucide-react';
 
 export const Contact = () => {
-  const formspreeEndpoint =
-    getEnv('VITE_FORMSPREE_ENDPOINT') || getEnv('VITE_FORMSPREE_URL');
+  const formspreeEndpoint = getEnv('VITE_FORMSPREE_ENDPOINT');
   const emailAddress = getEnv('VITE_EMAIL_ADDRESS');
   const mailToLink = `mailto:${emailAddress}`;
 
