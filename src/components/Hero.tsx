@@ -76,12 +76,12 @@ export const Hero = () => {
 
   return (
     <section id="hero" className="relative min-h-screen flex flex-col justify-center pt-24 md:pt-20 overflow-hidden">
-      <div className="max-w-[1800px] mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center w-full">
+      <div className="max-w-[1800px] mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-10 md:gap-12 items-center w-full">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="z-10 text-center md:text-left ml-50"
+          className="z-10 text-center lg:text-left mx-auto lg:mx-0 lg:pl-30 xl:pl-34"
         >
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -104,19 +104,19 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="text-text-muted font-signature text-lg md:text-xl ml-0 md:ml-40 mb-8 md:mb-12 font-light"
+            className="text-text-muted font-signature text-lg md:text-xl mb-8 md:mb-12 font-light"
           >
             This Side
           </motion.h4>
         
-          <div className="flex items-center justify-center md:justify-start gap-4 text-lg md:text-xl text-text-muted mb-4 h-10 font-light">
+          <div className="flex items-center justify-center lg:justify-start gap-4 text-lg md:text-xl text-text-muted mb-4 h-10 font-light">
             <Play className="w-5 h-5 text-primary fill-primary shrink-0" />
             <Typewriter roles={roles} />
           </div>
 
-          <div className="w-32 h-[1px] bg-white/10 mb-8 mx-auto md:mx-0" />
+           <div className="w-32 h-[1px] bg-white/10 mb-8 mx-auto lg:mx-0" />
 
-          <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-12 md:mb-20">
+           <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12 md:mb-20">
              {socialLinks.map(({ Icon, href, label, download }) => (
                            <motion.a
                              key={label}
@@ -146,9 +146,9 @@ export const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="relative flex justify-center md:justify-center"
+          className="relative flex justify-center"
         >
-          <div className="relative w-full max-w-[500px] md:max-w-[450px] aspect-square rounded-full overflow-hidden border border-white/5 emerald-glow">
+          <div className="relative w-[72vw] max-w-[260px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[450px] aspect-square rounded-full overflow-hidden border border-white/5 emerald-glow mx-auto">
             <img 
               src={heroImage}
               alt="Sumit Kumar" 
@@ -188,8 +188,8 @@ export const Hero = () => {
       </div>
 
       {/* Stats bar responsive */}
-      <div className="mt-20 md:mt-0 md:absolute md:bottom-16 left-60 right-0 pb-12 md:pb-0">
-        <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-center md:justify-start gap-8 md:gap-24">
+      <div className="mt-20 md:mt-0 md:absolute md:bottom-16 inset-x-0 pb-12 md:pb-0 lg:mx-0 lg:pl-30 xl:pl-44">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-center lg:justify-start gap-8 md:gap-24">
           <div className="flex items-center gap-4">
             <span className="text-xl md:text-2xl font-light text-text-main tracking-tighter">~<Counter value={1} /></span>
             <div className="text-[8px] text-text-muted uppercase tracking-[0.15em] leading-tight font-light">
