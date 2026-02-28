@@ -84,7 +84,7 @@ This repo includes a workflow at `.github/workflows/deploy.yml`.
   - `VITE_FORMSPREE_URL` (**required if `VITE_FORMSPREE_ENDPOINT` is not set**)
   - `VITE_EMAIL_ADDRESS` (**required**)
   - `GEMINI_API_KEY` (optional)
-  - `VITE_BASE_PATH` (optional override)
+  - `VITE_BASE_PATH` (optional override, example: `/sumit-portfolio/` without quotes)
 5. Push to `main` (or run the workflow manually from the **Actions** tab).
 
 ### Result
