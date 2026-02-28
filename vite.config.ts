@@ -1,0 +1,39 @@
+import tailwindcss from '@tailwindcss/vite';
+import react from '@vitejs/plugin-react';
+import fs from 'node:fs';
+import dotenv from 'dotenv';
+import path from 'node:path';
+import {defineConfig, loadEnv} from 'vite';
+
+export default defineConfig(({mode}) => {
+  const env = loadEnv(mode, '.', '');
+  const legacyEnvPath = path.resolve(__dirname, '.env.loacal');
+  const legacyEnv = fs.existsSync(legacyEnvPath)
+    ? dotenv.parse(fs.readFileSync(legacyEnvPath))
+    : {};
+  const mergedEnv = {...legacyEnv, ...env};
+
+  const clientEnvDefines = Object.fromEntries(
+    Object.entries(mergedEnv)
+      .filter(([key]) => key.startsWith('VITE_'))
+      .map(([key, value]) => [`import.meta.env.${key}`, JSON.stringify(value)]),
+  );
+
+  return {
+    plugins: [react(), tailwindcss()],
+    define: {
+      ...clientEnvDefines,
+      'process.env.GEMINI_API_KEY': JSON.stringify(mergedEnv.GEMINI_API_KEY),
+    },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, '.'),
+      },
+    },
+    server: {
+      // HMR is disabled in AI Studio via DISABLE_HMR env var.
+      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
+      hmr: process.env.DISABLE_HMR !== 'true',
+    },
+  };
+});
