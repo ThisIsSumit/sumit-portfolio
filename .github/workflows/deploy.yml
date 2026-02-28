@@ -37,6 +37,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Validate required environment variables
+        shell: bash
+        run: |
+          if [ -z "${VITE_EMAIL_ADDRESS}" ]; then
+            echo "Missing required secret: VITE_EMAIL_ADDRESS"
+            exit 1
+          fi
+
+          if [ -z "${VITE_FORMSPREE_ENDPOINT}" ] && [ -z "${VITE_FORMSPREE_URL}" ]; then
+            echo "Missing form endpoint. Set either VITE_FORMSPREE_ENDPOINT or VITE_FORMSPREE_URL"
+            exit 1
+          fi
+
       - name: Build
         run: npm run build
 

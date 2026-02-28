@@ -80,9 +80,9 @@ This repo includes a workflow at `.github/workflows/deploy.yml`.
 2. Go to **Settings → Pages**.
 3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
 4. Go to **Settings → Secrets and variables → Actions** and add these repository secrets (as needed):
-  - `VITE_FORMSPREE_ENDPOINT`
-  - `VITE_FORMSPREE_URL`
-  - `VITE_EMAIL_ADDRESS`
+  - `VITE_FORMSPREE_ENDPOINT` (**required if `VITE_FORMSPREE_URL` is not set**)
+  - `VITE_FORMSPREE_URL` (**required if `VITE_FORMSPREE_ENDPOINT` is not set**)
+  - `VITE_EMAIL_ADDRESS` (**required**)
   - `GEMINI_API_KEY` (optional)
   - `VITE_BASE_PATH` (optional override)
 5. Push to `main` (or run the workflow manually from the **Actions** tab).

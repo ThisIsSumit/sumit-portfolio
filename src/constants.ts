@@ -1,4 +1,8 @@
 import { Project, Experience, TechCategory } from './types';
+import lifelensImage from './assets/projects/lifelens.png';
+import safebaseImage from './assets/projects/safebase.png';
+import robosocImage from './assets/projects/robosoc.png';
+import socialSyncImage from './assets/projects/social_sync.png';
 
 export const PROJECTS: Project[] = [
   {
@@ -6,7 +10,7 @@ export const PROJECTS: Project[] = [
     title: "LifeLens",
     description: "AI-powerful life tracking platform",
     type: "Product",
-    image: "src/assets/projects/lifelens.png",
+    image: lifelensImage,
     links: [
       { label: "GitHub", url: "https://github.com/ThisIsSumit/ar_firstaid_flutter", icon: "Github" },
      
@@ -17,7 +21,7 @@ export const PROJECTS: Project[] = [
     title: "SafeBase (Backup CLI)",
     description: "backups with restore and automation support",
     type: "Project",
-    image: "src/assets/projects/safebase.png",
+    image: safebaseImage,
     links: [
       { label: "GitHub", url: "https://github.com/ThisIsSumit/Database-Backup-Utility-Cross-Platform-CLI-Tool ", icon: "Github" },
    
@@ -28,7 +32,7 @@ export const PROJECTS: Project[] = [
     title: "RoboSoc",
     description: "Robotics community platform for events, projects, and  coordination",
     type: "Project",
-    image: "src/assets/projects/robosoc.png",
+    image: robosocImage,
     links: [
       { label: "GitHub", url: "https://github.com/ThisIsSumit/robosoc", icon: "Github" },
      
@@ -39,7 +43,7 @@ export const PROJECTS: Project[] = [
     title: "Social Sync",
     description: "personal social media manager and scheduler with analytics",
     type: "Product",
-    image: "src/assets/projects/social_sync.png",
+    image: socialSyncImage,
     links: [
       { label: "GitHub", url: "https://github.com/ThisIsSumit/SocialSync-Flutter ", icon: "Github" },
     

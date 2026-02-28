@@ -1,9 +1,14 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Download } from 'lucide-react';
+import resumePdf from '../assets/resume.pdf';
+import c1Image from '../assets/c1.jpeg';
+import c2Image from '../assets/c2.jpeg';
+import c3Image from '../assets/c3.jpeg';
+import c4Image from '../assets/c4.jpeg';
 
 export const About = () => {
-  const resumeUrl = '/src/assets/resume.pdf';
+  const resumeUrl = resumePdf;
 
   return (
     <section id="about" className="py-20 md:py-32 bg-background relative overflow-hidden">
@@ -14,13 +19,13 @@ export const About = () => {
             <div className="space-y-4">
               <motion.img 
                 whileHover={{ scale: 1.02 }}
-                src="src\assets\c1.jpeg" 
+                src={c1Image}
                 className="rounded-2xl w-full aspect-[3/2] object-cover border border-white/5 grayscale hover:grayscale-0 transition-all"
                 referrerPolicy="no-referrer"
               />
               <motion.img 
                 whileHover={{ scale: 1.02 }}
-                src="src\assets\c2.jpeg" 
+                src={c2Image}
                 className="rounded-2xl w-full aspect-[4/3] object-cover border border-white/5 grayscale hover:grayscale-0 transition-all"
                 referrerPolicy="no-referrer"
               />
@@ -28,13 +33,13 @@ export const About = () => {
             <div className="space-y-4 pt-12">
               <motion.img 
                 whileHover={{ scale: 1.02 }}
-                src="src\assets\c3.jpeg" 
+                src={c3Image}
                 className="rounded-2xl w-full aspect-[4/3] object-cover border border-white/5 grayscale hover:grayscale-0 transition-all"
                 referrerPolicy="no-referrer"
               />
               <motion.img 
                 whileHover={{ scale: 1.02 }}
-                src="src\assets\c4.jpeg" 
+                src={c4Image}
                 className="rounded-2xl w-full aspect-[7/6] object-cover border border-white/5 grayscale hover:grayscale-0 transition-all"
                 referrerPolicy="no-referrer"
               />

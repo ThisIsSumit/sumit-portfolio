@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { getEnv } from '../lib/env';
+import resumePdf from '../assets/resume.pdf';
 import { 
   Mail, 
   Phone, 
@@ -21,8 +22,6 @@ export const Contact = () => {
     getEnv('VITE_FORMSPREE_ENDPOINT') || getEnv('VITE_FORMSPREE_URL');
   const emailAddress = getEnv('VITE_EMAIL_ADDRESS');
   const mailToLink = `mailto:${emailAddress}`;
-  console.log('Formspree Endpoint:', formspreeEndpoint);
-  console.log(emailAddress);
 
   const socialLinks = [
     { Icon: Linkedin, href: 'https://www.linkedin.com/in/sumitthisside', label: 'LinkedIn' },
@@ -30,7 +29,7 @@ export const Contact = () => {
     { Icon: Instagram, href: 'https://www.instagram.com/s.u.m.i.t_this_side', label: 'Instagram' },
     { Icon: Twitter, href: 'https://x.com/SumitKumar70774', label: 'X (Twitter)' },
     { Icon: BookOpen, href: 'https://www.linkedin.com/in/sumitthisside/details/certifications/', label: 'Certifications' },
-    { Icon: Download, href: '/src/assets/resume.pdf', label: 'Download Resume', download: true }
+    { Icon: Download, href: resumePdf, label: 'Download Resume', download: true }
   ];
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -43,8 +42,6 @@ export const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-     console.log('Formspree Endpoint:', formspreeEndpoint);
-  console.log(emailAddress);
 
     if (!formspreeEndpoint) {
       setStatus('error');
@@ -55,7 +52,8 @@ export const Contact = () => {
       const response = await fetch(formspreeEndpoint, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
         },
         body: JSON.stringify(formData)
       });

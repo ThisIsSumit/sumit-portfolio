@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform, animate } from 'motion/react';
 import { Github, Linkedin, Instagram, Twitter, BookOpen, Download, Play } from 'lucide-react';
+import resumePdf from '../assets/resume.pdf';
+import heroImage from '../assets/me.jpeg';
 
 const Typewriter = ({ roles, delay = 100, pause = 2000 }: { roles: string[]; delay?: number; pause?: number }) => {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -69,7 +71,7 @@ export const Hero = () => {
       { Icon: Instagram, href: 'https://www.instagram.com/s.u.m.i.t_this_side', label: 'Instagram' },
       { Icon: Twitter, href: 'https://x.com/SumitKumar70774', label: 'X (Twitter)' },
       { Icon: BookOpen, href: 'https://www.linkedin.com/in/sumitthisside/details/certifications/', label: 'Certifications' },
-      { Icon: Download, href: '/src/assets/resume.pdf', label: 'Download Resume', download: true }
+      { Icon: Download, href: resumePdf, label: 'Download Resume', download: true }
     ];
 
   return (
@@ -148,7 +150,7 @@ export const Hero = () => {
         >
           <div className="relative w-full max-w-[500px] md:max-w-[450px] aspect-square rounded-full overflow-hidden border border-white/5 emerald-glow">
             <img 
-               src="src\assets\me.jpeg"
+              src={heroImage}
               alt="Sumit Kumar" 
               className="w-full h-full object-cover grayscale brightness-90 contrast-110"
               referrerPolicy="no-referrer"
