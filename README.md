@@ -79,7 +79,13 @@ This repo includes a workflow at `.github/workflows/deploy.yml`.
 1. Open your repository on GitHub.
 2. Go to **Settings → Pages**.
 3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-4. Push to `main` (or run the workflow manually from the **Actions** tab).
+4. Go to **Settings → Secrets and variables → Actions** and add these repository secrets (as needed):
+  - `VITE_FORMSPREE_ENDPOINT`
+  - `VITE_FORMSPREE_URL`
+  - `VITE_EMAIL_ADDRESS`
+  - `GEMINI_API_KEY` (optional)
+  - `VITE_BASE_PATH` (optional override)
+5. Push to `main` (or run the workflow manually from the **Actions** tab).
 
 ### Result
 
@@ -88,3 +94,5 @@ After a successful workflow run, your portfolio will be available at:
 `https://<your-github-username>.github.io/sumit-portfolio/`
 
 If your repository name changes, the deploy URL path changes too.
+
+If both `VITE_FORMSPREE_ENDPOINT` and `VITE_FORMSPREE_URL` are set, `VITE_FORMSPREE_ENDPOINT` takes priority.
