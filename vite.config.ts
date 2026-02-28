@@ -11,6 +11,22 @@ function normalizeBasePath(value?: string): string {
   }
 
   let normalized = value.trim();
+  try {
+    normalized = decodeURIComponent(normalized);
+  } catch {
+    normalized = normalized.replace(/%22/gi, '"');
+  }
+
+  normalized = normalized.replace(/%22/gi, '"');
+
+  if (normalized.startsWith('http://') || normalized.startsWith('https://')) {
+    try {
+      normalized = new URL(normalized).pathname;
+    } catch {
+      // ignore invalid URL values and continue with string sanitization
+    }
+  }
+
   normalized = normalized.replace(/^['"]+|['"]+$/g, '');
 
   if (!normalized) {
