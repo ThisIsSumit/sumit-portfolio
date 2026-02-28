@@ -7,6 +7,10 @@ import {defineConfig, loadEnv} from 'vite';
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
+  const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1];
+  const pagesBase =
+    process.env.VITE_BASE_PATH ||
+    (process.env.GITHUB_ACTIONS === 'true' && repoName ? `/${repoName}/` : '/');
   const legacyEnvPath = path.resolve(__dirname, '.env.loacal');
   const legacyEnv = fs.existsSync(legacyEnvPath)
     ? dotenv.parse(fs.readFileSync(legacyEnvPath))
@@ -20,6 +24,7 @@ export default defineConfig(({mode}) => {
   );
 
   return {
+    base: pagesBase,
     plugins: [react(), tailwindcss()],
     define: {
       ...clientEnvDefines,
