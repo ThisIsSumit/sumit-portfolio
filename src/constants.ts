@@ -3,6 +3,7 @@ import lifelensImage from './assets/projects/lifelens.png';
 import safebaseImage from './assets/projects/safebase.png';
 import robosocImage from './assets/projects/robosoc.png';
 import socialSyncImage from './assets/projects/social_sync.png';
+import taskFlowImage from './assets/projects/taskflow.png';
 
 export const PROJECTS: Project[] = [
   {
@@ -48,7 +49,21 @@ export const PROJECTS: Project[] = [
       { label: "GitHub", url: "https://github.com/ThisIsSumit/SocialSync-Flutter ", icon: "Github" },
     
     ]
-  }
+  },
+  {
+  id: 5,
+  title: "TaskFlow",
+  description: "A modern task management and productivity app with smart task tracking, calendar planning, drag-and-drop scheduling, reminders, and analytics to monitor productivity.",
+  type: "Product",
+  image: taskFlowImage,
+  links: [
+    { 
+      label: "GitHub", 
+      url: "https://github.com/ThisIsSumit/Task-Flow-", 
+      icon: "Github" 
+    }
+  ]
+}
 ];
 export const EXPERIENCES: Experience[] = [
   {
@@ -57,13 +72,15 @@ export const EXPERIENCES: Experience[] = [
     role: "Flutter Developer Intern",
     period: "Oct 2025 - Present",
     technologies: ["Flutter", "Dart", "REST APIs", "State Management", "Caching", "Prefetching"],
-    points: [
-      "Built and maintained Flutter-based cross-platform features using clean and reusable architecture.",
-      "Integrated REST APIs for real-time data synchronization and in-app customer support chat.",
-      "Improved app startup time by ~80% through prefetching, background processing, and caching.",
-      "Optimized performance by reducing unnecessary widget rebuilds and memory usage.",
-      "Collaborated with backend, product, and QA teams to debug, test, and deliver stable releases."
-    ]
+points: [
+  "Developed 20+ cross-platform features using Flutter with a scalable and reusable architecture.",
+  "Implemented real-time in-app customer support chat handling 200+ user interactions daily.",
+  "Improved app performance by ~40% using data prefetching, lazy loading, and caching strategies.",
+  "Migrated the inventory management module (~10k+ products) from React to Flutter.",
+  "Reduced unnecessary widget rebuilds and optimized memory usage, improving UI responsiveness by ~30%.",
+  "Managed App Store deployment and release cycles for production updates.",
+  
+]
   },
   {
     id: 2,
@@ -71,11 +88,12 @@ export const EXPERIENCES: Experience[] = [
     role: "Software Engineer Intern",
     period: "May 2025 - Aug 2025",
     technologies: ["Flutter", "Java", "Spring Boot", "PostgreSQL", "REST APIs", "State Management"],
-    points: [
-      "Developed user-friendly mobile applications using Flutter with intuitive UI and responsive designs.",
-      "Implemented scalable and secure REST APIs using Spring Boot, optimized for performance.",
-      "Integrated Flutter, Java, Spring Boot, and PostgreSQL cohesively to deliver functional software solutions."
-    ]
+points: [
+  "Built the complete Flutter delivery partner app supporting order flow, delivery tracking, and wallet features for 500+ daily orders.",
+  "Developed 15+ REST APIs using Spring Boot and PostgreSQL to power real-time delivery and order operations.",
+  "Implemented an event-driven architecture using Kafka to process 1000+ asynchronous order and delivery events per day.",
+  "Optimized mobile performance and API response times, reducing delivery workflow delays by ~30%."
+]
   },
   {
     id: 3,
