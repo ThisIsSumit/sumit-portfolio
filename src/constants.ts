@@ -54,7 +54,7 @@ export const PROJECTS: Project[] = [
   id: 5,
   title: "TaskFlow",
   description: "A modern task management and productivity app with smart task tracking, calendar planning, drag-and-drop scheduling, reminders, and analytics to monitor productivity.",
-  type: "Product",
+  type: "Project",
   image: taskFlowImage,
   links: [
     { 
