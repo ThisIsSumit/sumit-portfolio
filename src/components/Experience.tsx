@@ -4,22 +4,22 @@ import { EXPERIENCES } from '../constants';
 
 export const Experience = () => {
   return (
-    <section id="experience" className="py-20 md:py-32">
-      <div className="max-w-[1800px] mx-auto px-6 md:px-12">
+    <section id="experience" className="py-20 md:py-15  overflow-hidden mix-blend-difference" >
+      <div className="max-w-450 mx-auto px-6 md:px-12 py-12">
         <div className="mb-12 md:mb-20">
           <h3 className="text-primary font-bold text-xs uppercase tracking-[0.2em] mb-6">Journey</h3>
           <h2 className="text-3xl md:text-5xl font-light text-text-main mb-4 tracking-tighter">Experience</h2>
           <p className="text-text-muted text-base font-light tracking-tight">Reflection of what I've been doing so far, so long.</p>
         </div>
 
-        <div className="space-y-8 md:space-y-12">
+        <div className="space-y-4 md:space-y-8 justify-between  ">
           {EXPERIENCES.map((exp, idx) => (
             <motion.div
               key={exp.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-surface p-8 md:p-12 rounded-[32px] md:rounded-[40px] grid md:grid-cols-[1fr_2fr] gap-8 md:gap-20 border border-white/5 hover:border-primary/20 transition-all shadow-xl"
+              className="bg-surface p-8 md:p-12 rounded-[32px] md:rounded-[40px] grid md:grid-cols-[1fr_2fr] gap-2 border border-white/5 hover:border-primary/20 transition-all shadow-xl mx-15 my-10"
             >
               <div>
                 <h3 className="text-3xl font-black text-primary mb-2 tracking-tight">{exp.company}</h3>

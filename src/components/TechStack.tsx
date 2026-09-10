@@ -5,20 +5,19 @@ import * as Icons from 'lucide-react';
 
 export const TechStack = () => {
   return (
-    <section
-      id="tech"
-      className="w-full min-h-screen flex items-center justify-center px-6 md:px-16"
-    >
-      <div className="w-full max-w-7xl">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+ <section
+  id="tech"
+  className="w-full min-h-screen  justify-center px-6 md:px-16 py-25  "
+>
+      <div className="w-80% max-w-7xl">
+        <div className="grid md:grid-cols-2 gap-14 items-center">
           <div>
             <h3 className="text-primary font-bold text-xs uppercase tracking-[0.2em] mb-6">Expertise</h3>
             <h2 className="text-3xl md:text-5xl font-light text-text-main mb-6 tracking-tighter">Tech Stack</h2>
-            <p className="text-text-muted mb-12 max-w-xl text-base font-light tracking-tight">
+            <p className="text-text-muted  max-w-xl text-base font-light tracking-tight">
               Change is inevitable, so I keep on exploring new technology, learn it in a minimal possible way and then build something out of it to see how well I did :)
             </p>
-
-            <div className="py-6 md:p-12  ">
+            <div className="py-4 md:p-12  ">
               {TECH_STACK.map((category, idx) => (
                 <div key={idx}>
                   <h4 className="text-[10px] uppercase tracking-[0.2em] text-text-muted mt-5  mb-3 font-bold">{category.title}</h4>

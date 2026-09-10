@@ -136,7 +136,7 @@ export const Hero = () => {
           <motion.a
             href="#contact"
             whileHover={{ x: 5 }}
-            className="text-primary font-bold tracking-[0.2em] text-[10px] border-b border-primary/30 pb-2 hover:border-primary transition-all uppercase inline-block"
+            className="text-primary font-bold tracking-[0.2em] text-[10px] border-b border-primary/30 pb-2 hover:border-primary transition-all uppercase inline-block mb-6 md:mb-10"
           >
             LET'S CHAT!
           </motion.a>

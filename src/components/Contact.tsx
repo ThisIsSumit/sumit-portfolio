@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { getEnv } from '../lib/env';
 import resumePdf from '../assets/resume.pdf';
-import { 
-  Mail, 
-  Phone, 
-  Linkedin, 
-  Github, 
-  Instagram, 
-  Twitter, 
-  BookOpen, 
-  Download, 
+import {
+  Mail,
+  Linkedin,
+  Github,
+  Instagram,
+  Twitter,
+  BookOpen,
+  Download,
   ChevronRight,
   CheckCircle2,
   AlertCircle,
@@ -20,6 +19,7 @@ import {
 export const Contact = () => {
   const formspreeEndpoint =
     getEnv('VITE_FORMSPREE_ENDPOINT') || getEnv('VITE_FORMSPREE_URL');
+
   const emailAddress = getEnv('VITE_EMAIL_ADDRESS');
   const mailToLink = `mailto:${emailAddress}`;
 
@@ -32,7 +32,10 @@ export const Contact = () => {
     { Icon: Download, href: resumePdf, label: 'Download Resume', download: true }
   ];
 
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<
+    'idle' | 'loading' | 'success' | 'error'
+  >('idle');
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -65,12 +68,14 @@ export const Contact = () => {
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
@@ -78,78 +83,240 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-surface/30">
-      <div className="max-w-[1800px] mx-auto px-6 md:px-12">
-        <div className="mb-12 md:mb-20 text-center">
-          <h3 className="text-primary font-bold text-xs uppercase tracking-[0.2em] mb-6">Connect</h3>
-          <h2 className="text-3xl md:text-5xl font-light text-text-main mb-4 tracking-tighter">Get in touch</h2>
-          <p className="text-text-muted text-base font-light tracking-tight">Let's build something together :)</p>
+    <section
+      id="contact"
+      className="
+       w-full
+    min-h-svh
+    flex items-center justify-center
+    px-[clamp(1rem,4vw,4rem)]
+    py-[clamp(1.5rem,4vh,8rem)]
+    overflow-hidden
+      "
+    >
+      <div
+        className="
+          w-full
+          max-w-[1400px]
+          
+          px-[clamp(1rem,4vw,4rem)]
+          py-[clamp(1.5rem,8vh,8rem)]
+        "
+      >
+
+        {/* Header */}
+        <div
+          className="
+            mb-[clamp(2rem,5vh,5rem)]
+            text-center
+          "
+        >
+          <h3
+            className="
+              text-primary
+              font-bold
+              text-[clamp(0.6rem,0.7vw,0.75rem)]
+              uppercase
+              tracking-[0.2em]
+              mb-[clamp(0.75rem,1.5vh,1.5rem)]
+            "
+          >
+            Connect
+          </h3>
+
+          <h2
+            className="
+              text-[clamp(1.8rem,3.5vw,3rem)]
+              font-light
+              text-text-main
+              mb-3
+              tracking-tighter
+            "
+          >
+            Get in touch
+          </h2>
+
+          <p
+            className="
+              text-text-muted
+              text-[clamp(0.8rem,1vw,1rem)]
+              font-light
+              tracking-tight
+            "
+          >
+            Let's build something together :)
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center max-w-6xl mx-auto">
+        {/* Main */}
+        <div
+          className="
+            grid
+            grid-cols-1
+            md:grid-cols-2
+            gap-[clamp(1.25rem,3vw,2.5rem)]
+            items-center
+            max-w-[1100px]
+            mx-auto
+          "
+        >
+
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-surface p-8 md:p-10 rounded-[32px] md:rounded-[40px] border border-white/5 shadow-2xl emerald-glow"
+            className="
+              bg-surface
+              p-[clamp(1.25rem,2.5vw,2.5rem)]
+              rounded-[clamp(1.25rem,2.5vw,2.5rem)]
+              border border-white/5
+              shadow-2xl
+              emerald-glow
+            "
           >
-            <h3 className="text-primary font-bold text-xs uppercase tracking-[0.2em] mb-6">Send a Message</h3>
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <h3
+              className="
+                text-primary
+                font-bold
+                text-[clamp(0.6rem,0.7vw,0.75rem)]
+                uppercase
+                tracking-[0.2em]
+                mb-[clamp(1rem,2vh,1.5rem)]
+              "
+            >
+              Send a Message
+            </h3>
+
+            <form
+              className="space-y-[clamp(1rem,2vh,1.5rem)]"
+              onSubmit={handleSubmit}
+            >
+
+              {/* Name */}
               <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-text-muted font-bold">Full Name</label>
-                <input 
-                  type="text" 
+                <label className="text-[10px] uppercase tracking-widest text-text-muted font-bold">
+                  Full Name
+                </label>
+
+                <input
+                  type="text"
                   name="name"
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="John Doe"
-                  className="w-full bg-background border border-white/5 rounded-xl px-5 py-4 text-sm focus:outline-none focus:border-primary/50 transition-all"
+                  placeholder="Full Name"
+                  className="
+                    w-full
+                    bg-background
+                    border border-white/5
+                    rounded-xl
+                    px-[clamp(0.75rem,1.5vw,1.25rem)]
+                    py-[clamp(0.65rem,1vh,1rem)]
+                    text-[clamp(0.75rem,0.8vw,0.875rem)]
+                    focus:outline-none
+                    focus:border-primary/50
+                    transition-all
+                  "
                 />
               </div>
+
+              {/* Email */}
               <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-text-muted font-bold">Email Address</label>
-                <input 
-                  type="email" 
+                <label className="text-[10px] uppercase tracking-widest text-text-muted font-bold">
+                  Email Address
+                </label>
+
+                <input
+                  type="email"
                   name="email"
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="john@example.com"
-                  className="w-full bg-background border border-white/5 rounded-xl px-5 py-4 text-sm focus:outline-none focus:border-primary/50 transition-all"
+                  placeholder="email address"
+                  className="
+                    w-full
+                    bg-background
+                    border border-white/5
+                    rounded-xl
+                    px-[clamp(0.75rem,1.5vw,1.25rem)]
+                    py-[clamp(0.65rem,1vh,1rem)]
+                    text-[clamp(0.75rem,0.8vw,0.875rem)]
+                    focus:outline-none
+                    focus:border-primary/50
+                    transition-all
+                  "
                 />
               </div>
+
+              {/* Message */}
               <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-text-muted font-bold">Message</label>
-                <textarea 
+                <label className="text-[10px] uppercase tracking-widest text-text-muted font-bold">
+                  Message
+                </label>
+
+                <textarea
                   name="message"
                   required
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
                   placeholder="How can I help you?"
-                  className="w-full bg-background border border-white/5 rounded-xl px-5 py-4 text-sm focus:outline-none focus:border-primary/50 transition-all resize-none"
+                  className="
+                    w-full
+                    bg-background
+                    border border-white/5
+                    rounded-xl
+                    px-[clamp(0.75rem,1.5vw,1.25rem)]
+                    py-[clamp(0.65rem,1vh,1rem)]
+                    text-[clamp(0.75rem,0.8vw,0.875rem)]
+                    focus:outline-none
+                    focus:border-primary/50
+                    transition-all
+                    resize-none
+                  "
                 />
               </div>
-              
+
               <AnimatePresence mode="wait">
                 {status === 'success' ? (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="flex items-center gap-3 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-emerald-500 text-xs font-bold uppercase tracking-wider"
+                    className="
+                      flex items-center gap-3
+                      p-3 md:p-4
+                      bg-emerald-500/10
+                      border border-emerald-500/20
+                      rounded-xl
+                      text-emerald-500
+                      text-[10px]
+                      font-bold
+                      uppercase
+                      tracking-wider
+                    "
                   >
                     <CheckCircle2 size={18} />
                     Message sent successfully!
                   </motion.div>
                 ) : status === 'error' ? (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="flex items-center gap-3 p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 text-xs font-bold uppercase tracking-wider"
+                    className="
+                      flex items-center gap-3
+                      p-3 md:p-4
+                      bg-red-500/10
+                      border border-red-500/20
+                      rounded-xl
+                      text-red-500
+                      text-[10px]
+                      font-bold
+                      uppercase
+                      tracking-wider
+                    "
                   >
                     <AlertCircle size={18} />
                     Something went wrong. Please try again.
@@ -161,7 +328,25 @@ export const Contact = () => {
                     disabled={status === 'loading'}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-4 bg-primary text-background font-black rounded-xl uppercase tracking-widest text-xs shadow-lg shadow-primary/20 hover:bg-primary-hover transition-all flex items-center justify-center gap-2 disabled:opacity-70"
+                    className="
+                      w-full
+                      py-[clamp(0.7rem,1vh,1rem)]
+                      bg-primary
+                      text-background
+                      font-black
+                      rounded-xl
+                      uppercase
+                      tracking-widest
+                      text-[10px]
+                      shadow-lg
+                      shadow-primary/20
+                      hover:bg-primary-hover
+                      transition-all
+                      flex items-center
+                      justify-center
+                      gap-2
+                      disabled:opacity-70
+                    "
                   >
                     {status === 'loading' ? (
                       <>
@@ -178,7 +363,8 @@ export const Contact = () => {
           </motion.div>
 
           {/* Contact Info */}
-          <div className="space-y-6 md:space-y-8">
+          <div className="space-y-[clamp(1rem,2vh,2rem)]">
+
             <a
               href={mailToLink}
               onClick={(e) => {
@@ -186,21 +372,78 @@ export const Contact = () => {
                 globalThis.location.href = mailToLink;
               }}
               aria-label="Send email to Sumit"
-              className="flex items-center justify-between p-6 md:p-8 bg-surface rounded-[24px] md:rounded-[32px] border border-white/5 hover:border-primary/30 transition-all group shadow-lg"
+              className="
+                flex items-center justify-between
+                p-[clamp(1rem,2vw,2rem)]
+                bg-surface
+                rounded-[clamp(1rem,2vw,2rem)]
+                border border-white/5
+                hover:border-primary/30
+                transition-all
+                group
+                shadow-lg
+              "
             >
-              <div className="flex items-center gap-4 md:gap-6">
-                <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary border border-primary/10 shrink-0">
-                  <Mail size={20} />
+              <div className="flex items-center gap-[clamp(0.75rem,1.5vw,1.5rem)] min-w-0">
+
+                <div
+                  className="
+                    w-[clamp(2.5rem,4vw,3.5rem)]
+                    h-[clamp(2.5rem,4vw,3.5rem)]
+                    rounded-2xl
+                    bg-primary/10
+                    flex items-center
+                    justify-center
+                    text-primary
+                    border border-primary/10
+                    shrink-0
+                  "
+                >
+                  <Mail
+                    className="
+                      w-[clamp(1rem,1.5vw,1.25rem)]
+                      h-[clamp(1rem,1.5vw,1.25rem)]
+                    "
+                  />
                 </div>
-                <span className="text-sm md:text-lg font-bold text-text-muted group-hover:text-text-main transition-colors tracking-tight break-all">{emailAddress}</span>
+
+                <span
+                  className="
+                    text-[clamp(0.7rem,1vw,1.125rem)]
+                    font-bold
+                    text-text-muted
+                    group-hover:text-text-main
+                    transition-colors
+                    tracking-tight
+                    break-all
+                  "
+                >
+                  {emailAddress}
+                </span>
               </div>
-              <ChevronRight size={18} className="text-text-muted group-hover:text-primary transition-all shrink-0" />
+
+              <ChevronRight
+                className="
+                  w-[clamp(1rem,1.5vw,1.125rem)]
+                  h-[clamp(1rem,1.5vw,1.125rem)]
+                  text-text-muted
+                  group-hover:text-primary
+                  transition-all
+                  shrink-0
+                "
+              />
             </a>
 
-           
-
-            <div className="flex justify-center gap-6 pt-6 md:pt-10">
-               {socialLinks.map(({ Icon, href, label, download }) => (
+            {/* Socials */}
+            <div
+              className="
+                flex justify-center
+                flex-wrap
+                gap-[clamp(1rem,2vw,1.5rem)]
+                pt-[clamp(1rem,2vh,2.5rem)]
+              "
+            >
+              {socialLinks.map(({ Icon, href, label, download }) => (
                 <motion.a
                   key={label}
                   href={href}
@@ -211,10 +454,16 @@ export const Contact = () => {
                   whileHover={{ scale: 1.2, color: '#6ee7b7' }}
                   className="text-text-muted transition-colors"
                 >
-                  <Icon size={24} />
+                  <Icon
+                    className="
+                      w-[clamp(1rem,1.5vw,1.5rem)]
+                      h-[clamp(1rem,1.5vw,1.5rem)]
+                    "
+                  />
                 </motion.a>
               ))}
             </div>
+
           </div>
         </div>
       </div>

@@ -70,7 +70,7 @@ export const EXPERIENCES: Experience[] = [
     id: 1,
     company: "Grocery on wheels",
     role: "Flutter Developer Intern",
-    period: "Oct 2025 - Present",
+    period: "Oct 2025 - Mar 2026",
     technologies: ["Flutter", "Dart", "REST APIs", "State Management", "Caching", "Prefetching"],
 points: [
   "Developed 20+ cross-platform features using Flutter with a scalable and reusable architecture.",
@@ -149,7 +149,7 @@ export const TECH_STACK: TechCategory[] = [
     title: "Frontend & Design",
     skills: [
       { name: "React", icon: "Layout" }, 
-      { name: "UI/UX", icon: "Palette" }, 
+      { name: "Next.js", icon: "Code" }, 
       { name: "State Management", icon: "Layers" }
     ]
   },
@@ -165,7 +165,8 @@ export const TECH_STACK: TechCategory[] = [
     title: "Version controlling & management",
     skills: [
       { name: "GitHub", icon: "Github" },
-      { name: "Notion", icon: "Book" }
+      { name: "Notion", icon: "Book" },
+      { name: "Slack", icon: "Book" }
     ]
   }
 ];
