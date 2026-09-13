@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'motion/react';
 import { TECH_STACK } from '../constants';
@@ -10,21 +9,24 @@ export const TechStack = () => {
       id="tech"
       className="
         w-full
-        min-h-screen
+        md:min-h-screen
         flex
         justify-center
         px-4
         sm:px-6
         md:px-16
-        py-12
+        py-10
         sm:py-16
-        md:py-25
+        md:py-20
         overflow-hidden
+        
+        
+        sm:zoom-0.7
       "
     >
-      <div className="w-full max-w-7xl">
+      <div className="w-full max-w-7xl ">
 
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-14 items-center">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-14 items-center justify-center  pl-4">
 
           {/* LEFT CONTENT */}
           <motion.div
@@ -84,6 +86,7 @@ export const TechStack = () => {
               md:p-12
               md:pl-0
               md:pr-0
+             
             ">
               {TECH_STACK.map((category, idx) => (
                 <motion.div

@@ -136,8 +136,9 @@ export const Hero = () => {
         flex
         flex-col
         justify-center
-        pt-20
-        sm:pt-24
+      
+        sm:pt-20
+        
         md:pt-20
         overflow-hidden
       "
