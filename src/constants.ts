@@ -1,69 +1,78 @@
 import { Project, Experience, TechCategory } from './types';
-import lifelensImage from './assets/projects/lifelens.png';
-import safebaseImage from './assets/projects/safebase.png';
-import robosocImage from './assets/projects/robosoc.png';
-import socialSyncImage from './assets/projects/social_sync.png';
-import taskFlowImage from './assets/projects/taskflow.png';
+
+import Docusense from './assets/projects/Docusense.png';
+import giftgraph from './assets/projects/giftgraph.png';
+import HwakeyeAI from './assets/projects/Hawkeye.png';
+import sikshaSathi from './assets/projects/siksha-sathi.png';
+import MoneyManager from './assets/projects/Money-Manager.png';
+import Linguachat from './assets/projects/Linguachat.png';
+
 
 export const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "LifeLens",
-    description: "AI-powerful life tracking platform",
+    title: "DocuSense",
+    description: "AI-powered document intelligence platform with RAG pipeline, sub-300ms vector retrieval over 10K+ chunks",
     type: "Product",
-    image: lifelensImage,
+    image: Docusense,
     links: [
-      { label: "GitHub", url: "https://github.com/ThisIsSumit/ar_firstaid_flutter", icon: "Github" },
-     
+      { label: "GitHub", url: "https://github.com/ThisIsSumit/docusense", icon: "Github" },
+      { label: "Live Demo", url: "https://drive.google.com/drive/folders/1m346YrftNa7BoNAM7Y0usseOjjmUx0jD?usp=drive_link", icon: "ExternalLink" },
     ]
   },
   {
     id: 2,
-    title: "SafeBase (Backup CLI)",
-    description: "backups with restore and automation support",
+    title: "GiftGraph",
+    description: "Agentic gift-recommendation concierge built on LangGraph with intent parsing, catalog search, and budget validation",
     type: "Project",
-    image: safebaseImage,
+    image: giftgraph,
     links: [
-      { label: "GitHub", url: "https://github.com/ThisIsSumit/Database-Backup-Utility-Cross-Platform-CLI-Tool ", icon: "Github" },
-   
+      { label: "GitHub", url: "https://github.com/ThisIsSumit/giftgraph", icon: "Github" },
+      { label: "Live Demo", url: "https://giftgraph-814bb.web.app", icon: "ExternalLink" },
     ]
   },
   {
     id: 3,
-    title: "RoboSoc",
-    description: "Robotics community platform for events, projects, and  coordination",
+    title: "HawkEye AI",
+    description: "Real-time WebSocket threat intelligence pipeline processing 1K+ daily events with AI-driven attack diagnosis",
     type: "Project",
-    image: robosocImage,
+    image: HwakeyeAI,
     links: [
-      { label: "GitHub", url: "https://github.com/ThisIsSumit/robosoc", icon: "Github" },
-     
+      { label: "GitHub", url: "https://github.com/ThisIsSumit/hawkeye-ai", icon: "Github" },
     ]
   },
   {
     id: 4,
-    title: "Social Sync",
-    description: "personal social media manager and scheduler with analytics",
+    title: "Shiksha Saathi",
+    description: "Offline-first AI teacher assistant for rural India with Hindi lesson-plan generation and 3-role sync",
     type: "Product",
-    image: socialSyncImage,
+    image: sikshaSathi,
     links: [
-      { label: "GitHub", url: "https://github.com/ThisIsSumit/SocialSync-Flutter ", icon: "Github" },
-    
+      { label: "GitHub", url: "https://github.com/ThisIsSumit/shiksha-saathi", icon: "Github" },
     ]
   },
   {
-  id: 5,
-  title: "TaskFlow",
-  description: "A modern task management and productivity app with smart task tracking, calendar planning, drag-and-drop scheduling, reminders, and analytics to monitor productivity.",
-  type: "Project",
-  image: taskFlowImage,
-  links: [
-    { 
-      label: "GitHub", 
-      url: "https://github.com/ThisIsSumit/Task-Flow-", 
-      icon: "Github" 
-    }
-  ]
-}
+    id: 5,
+    title: "LinguaChat",
+    description: "Real-time multilingual chat platform with Socket.IO messaging and Claude Haiku-powered translation",
+    type: "Project",
+    image: Linguachat,
+    links: [
+      { label: "GitHub", url: "https://github.com/ThisIsSumit/LinguaChat", icon: "Github" },
+      { label: "Live Demo", url: "https://drive.google.com/drive/folders/1nbeP4Qgwf8dIToufTQhscuaaUf1SZ7ve?usp=drive_link", icon: "ExternalLink" },
+    ]
+  },
+  {
+    id: 6,
+    title: "Money Manager",
+    description: "Finance tracker with income/expense categorization and optimized PostgreSQL schemas for real-time reports",
+    type: "Project",
+    image: MoneyManager,
+    links: [
+      { label: "GitHub", url: "https://github.com/ThisIsSumit/money-manager-react", icon: "Github" },
+      { label: "Live Demo", url: "https://money-manager-react-mocha.vercel.app/", icon: "ExternalLink" },
+    ]
+  },
 ];
 export const EXPERIENCES: Experience[] = [
   {

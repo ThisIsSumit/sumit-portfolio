@@ -14,6 +14,12 @@ export const Projects = () => {
         px-[clamp(1rem,3vw,4rem)]
         py-[clamp(2rem,5vh,6rem)]
         overflow-visible
+        [zoom:1]
+        lg:[zoom:0.85]
+        2xl:[zoom:0.7]
+        [scroll-margin-top:calc(5rem+env(safe-area-inset-top))]
+        [padding-left:max(clamp(1rem,3vw,4rem),env(safe-area-inset-left))]
+        [padding-right:max(clamp(1rem,3vw,4rem),env(safe-area-inset-right))]
        
       "
     >
@@ -47,23 +53,17 @@ export const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-       <div
-  className="
-    grid
-    grid-cols-1
-    sm:grid-cols-2
-    md:grid-cols-3
-    lg:grid-cols-4
-    xl:grid-cols-5
-   
-    justify-items-center
-    
-    
-    gap-y-6
-    max-w-auto
-    mx-auto
-  "
->
+        <div
+          className="
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-3
+            justify-items-center
+            gap-6
+            mx-auto
+          "
+        >
           {PROJECTS.map((project, idx) => (
             <motion.div
               key={project.id}
@@ -71,18 +71,25 @@ export const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.08 }}
-             className="
-  group
-  w-full
-  max-w-[250px]
-  bg-surface
-  rounded-[22px]
-  overflow-hidden
-  border border-white/5
-  hover:border-primary/30
-  transition-all
-  shadow-xl
-"
+              whileHover={{ y: -6 }}
+              whileTap={{ scale: 0.98 }}
+              className="
+                group
+                w-full
+                max-w-[400px]
+                sm:max-w-[460px]
+                bg-surface
+                rounded-[22px]
+                overflow-hidden
+                border border-white/5
+                hover:border-primary/30
+                focus-within:border-primary/50
+                focus-within:ring-2 focus-within:ring-primary/20
+                transition-colors
+                shadow-xl
+                hover:shadow-2xl
+                cursor-pointer
+              "
             >
 
               {/* Image */}
@@ -98,7 +105,7 @@ export const Projects = () => {
                   alt={project.title}
                   className="
                     w-full h-full
-                    object-box
+                    object-cover
                     group-hover:scale-105
                     transition-transform duration-700
                   "
@@ -158,7 +165,7 @@ export const Projects = () => {
                 </p>
 
                 {/* Links */}
-                <div className="flex flex-wrap gap-[clamp(0.5rem,0.8vw,1rem)]">
+                <div className="flex flex-wrap gap-[clamp(0.5rem,0.8vw,1rem)] pt-3 border-t border-white/5">
                   {project.links.map((link, lIdx) => {
                     const Icon =
                       (Icons as any)[link.icon] || Icons.ExternalLink;
@@ -178,6 +185,11 @@ export const Projects = () => {
                           transition-colors
                           uppercase
                           tracking-widest
+                          cursor-pointer
+                          hover:text-primary/70
+                          focus:outline-none
+                          focus-visible:underline
+                          focus-visible:underline-offset-4
                         "
                       >
                         <Icon
@@ -185,6 +197,14 @@ export const Projects = () => {
                           className="w-[clamp(11px,0.9vw,14px)] h-[clamp(11px,0.9vw,14px)]"
                         />
                         {link.label}
+                        <Icons.ArrowUpRight
+                          size={12}
+                          className="
+                            -ml-1 opacity-0 -translate-x-1
+                            transition-all duration-200
+                            group-hover:opacity-100 group-hover:translate-x-0
+                          "
+                        />
                       </a>
                     );
                   })}
@@ -216,7 +236,9 @@ export const Projects = () => {
               border-primary/20
               pb-2
               hover:border-primary
+              cursor-pointer
               transition-all
+              inline-block
             "
           >
             Explore All Projects
