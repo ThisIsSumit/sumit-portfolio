@@ -8,7 +8,7 @@ export const Experience = () => {
       id="experience"
       className="py-10 sm:py-14 md:py-20 overflow-hidden mix-blend-difference"
     >
-      <div className="max-w-[900px] mx-auto px-4 sm:px-6 md:px-10">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-10">
 
         {/* Header */}
         <motion.div
@@ -30,6 +30,8 @@ export const Experience = () => {
             Reflection of what I've been doing so far, so long.
           </p>
         </motion.div>
+
+        <div className="grid lg:grid-cols-[1fr_300px] gap-10 lg:gap-14 items-start">
 
         {/* Timeline */}
         <div className="relative">
@@ -137,6 +139,8 @@ export const Experience = () => {
             ))}
           </div>
         </div>
+
+      </div>
 
       </div>
     </section>

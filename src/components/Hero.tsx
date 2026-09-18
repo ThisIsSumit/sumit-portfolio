@@ -138,7 +138,6 @@ export const Hero = () => {
         justify-center
       
         sm:pt-20
-        
         md:pt-20
         overflow-hidden
       "
@@ -157,9 +156,10 @@ export const Hero = () => {
           md:gap-12
           items-center
           w-full
-          py-5
+          py-10
           sm:py-8
           md:py-10
+          
         "
       >
 
